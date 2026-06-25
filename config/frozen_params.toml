@@ -1,0 +1,36 @@
+# Parámetros metodológicos CONGELADOS — Architecture Freeze v1.0 / Platform Master Blueprint v1.0
+# NO modificar sin justificación formal escrita.
+# Cambio Clase D: invalida los resultados de evaluación previos.
+
+[problems]
+return = true
+direction = true
+
+[horizons]
+values = [1, 5, 20]
+
+[walk_forward]
+refit_freq = 1
+min_train = 756
+purge_rule = "h-1"     # purge = h - 1
+embargo_rule = "h"     # embargo = h
+
+[lockbox]
+min = 252
+frac = 0.15
+
+[execution]
+convention = "next_open_t+1"
+
+[neutral_class]
+exclude_from_binary = true   # y_ret == 0 es neutro; excluido de métricas binarias
+
+[metrics]
+return = "MASE"
+direction = "MCC"
+
+[comparison_tests]
+diebold_mariano_hac_lag = "h-1"
+diebold_mariano_small_sample = "HLN"
+model_confidence_set = true
+block_bootstrap = true
