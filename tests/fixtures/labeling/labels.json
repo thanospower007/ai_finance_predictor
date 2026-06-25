@@ -1,0 +1,207 @@
+{
+  "description": "Fixtures de validacion del Labeling Engine. Esperados derivados de la definicion congelada (y_ret_h = ln(O_{t+1+h}/O_{t+1}); neutro = y_ret==0), generados independientemente del paquete.",
+  "cases": [
+    {
+      "name": "up_h1",
+      "opens": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "horizon": 1,
+      "expected": {
+        "decision_index": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y_ret": [
+          0.0870113769896297,
+          0.08004270767353636,
+          0.07410797215372183,
+          0.06899287148695142
+        ],
+        "y_dir": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "realize_index": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "name": "down_h1",
+      "opens": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "horizon": 1,
+      "expected": {
+        "decision_index": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y_ret": [
+          -0.07410797215372185,
+          -0.08004270767353637,
+          -0.08701137698962981,
+          -0.0953101798043249
+        ],
+        "y_dir": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "realize_index": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "name": "neutral_h1",
+      "opens": [
+        10,
+        11,
+        11,
+        12,
+        12,
+        13
+      ],
+      "horizon": 1,
+      "expected": {
+        "decision_index": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y_ret": [
+          0.0,
+          0.0870113769896297,
+          0.0,
+          0.08004270767353636
+        ],
+        "y_dir": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "realize_index": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "name": "mixed_h1",
+      "opens": [
+        10,
+        12,
+        11,
+        11,
+        13,
+        9
+      ],
+      "horizon": 1,
+      "expected": {
+        "decision_index": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y_ret": [
+          -0.08701137698962981,
+          0.0,
+          0.16705408466316624,
+          -0.3677247801253174
+        ],
+        "y_dir": [
+          -1,
+          0,
+          1,
+          -1
+        ],
+        "realize_index": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "name": "h5",
+      "opens": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+      ],
+      "horizon": 5,
+      "expected": {
+        "decision_index": [
+          0,
+          1
+        ],
+        "y_ret": [
+          0.3746934494414107,
+          0.4054651081081644
+        ],
+        "y_dir": [
+          1,
+          1
+        ],
+        "realize_index": [
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "name": "too_short_h5",
+      "opens": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "horizon": 5,
+      "expected": {
+        "decision_index": [],
+        "y_ret": [],
+        "y_dir": [],
+        "realize_index": []
+      }
+    }
+  ]
+}
