@@ -1,0 +1,89 @@
+{
+  "description": "Fixtures de validacion del Lockbox Manager. L=max(lockbox_min, ceil(lockbox_frac*N)); lockbox=cola; factibilidad development_size>=min_train+3*h*+1 (C2). Generados independientemente del paquete.",
+  "params": {
+    "lockbox_min": 252,
+    "lockbox_frac": 0.15,
+    "min_train": 756,
+    "max_horizon": 20
+  },
+  "cases": [
+    {
+      "name": "frac_dominated",
+      "n_samples": 10000,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "lockbox_size": 1500,
+        "lockbox_start": 8500,
+        "development_size": 8500,
+        "feasible": true
+      }
+    },
+    {
+      "name": "frac_round_up",
+      "n_samples": 10001,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "lockbox_size": 1501,
+        "lockbox_start": 8500,
+        "development_size": 8500,
+        "feasible": true
+      }
+    },
+    {
+      "name": "min_dominated_feasible",
+      "n_samples": 1200,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "lockbox_size": 252,
+        "lockbox_start": 948,
+        "development_size": 948,
+        "feasible": true
+      }
+    },
+    {
+      "name": "exact_boundary",
+      "n_samples": 1069,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "lockbox_size": 252,
+        "lockbox_start": 817,
+        "development_size": 817,
+        "feasible": true
+      }
+    },
+    {
+      "name": "just_below_boundary",
+      "n_samples": 1068,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "error": true
+      }
+    },
+    {
+      "name": "infeasible_small_dev",
+      "n_samples": 1000,
+      "lmin": 252,
+      "lfrac": 0.15,
+      "min_train": 756,
+      "hstar": 20,
+      "expected": {
+        "error": true
+      }
+    }
+  ]
+}
