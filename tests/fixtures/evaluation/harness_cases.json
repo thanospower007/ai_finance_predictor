@@ -1,0 +1,494 @@
+{
+  "description": "Fixtures de validacion del Evaluation Harness. Esperados recomputados por una reimplementacion independiente de la composicion (particion, labeling, splitter C2 con n=dev-1, MASE A1, MCC pooled) desde la especificacion congelada. Modelos: last_return (predice ln(O_t/O_{t-1})) y sign_last (su signo con sign(0):=+1).",
+  "cases": [
+    {
+      "name": "ret_basic",
+      "opens": [
+        100.0,
+        102.0,
+        101.0,
+        104.0,
+        103.0,
+        106.0,
+        105.0,
+        108.0,
+        107.0,
+        110.0,
+        109.0,
+        112.0,
+        111.0,
+        114.0,
+        113.0,
+        116.0
+      ],
+      "horizon": 1,
+      "problem": "return",
+      "model": "last_return",
+      "lmin": 2,
+      "lfrac": 0.15,
+      "min_train": 3,
+      "hstar": 2,
+      "expected": {
+        "development_size": 13,
+        "n_folds": 7,
+        "folds": [
+          {
+            "fold_id": 0,
+            "test_index": [
+              4
+            ],
+            "y_true": [
+              -0.00947874395454377
+            ],
+            "y_pred": [
+              -0.009661910911736859
+            ],
+            "q_scale": 0.03902748597748747,
+            "mase": 0.004693280968667737
+          },
+          {
+            "fold_id": 1,
+            "test_index": [
+              5
+            ],
+            "y_true": [
+              0.028170876966696224
+            ],
+            "y_pred": [
+              0.02871010588243136
+            ],
+            "q_scale": 0.03880899624971438,
+            "mase": 0.013894430875395413
+          },
+          {
+            "fold_id": 2,
+            "test_index": [
+              6
+            ],
+            "y_true": [
+              -0.009302392662313561
+            ],
+            "y_pred": [
+              -0.00947874395454377
+            ],
+            "q_scale": 0.03865395964652957,
+            "mase": 0.004562308592518074
+          },
+          {
+            "fold_id": 3,
+            "test_index": [
+              7
+            ],
+            "y_true": [
+              0.02765153133050995
+            ],
+            "y_pred": [
+              0.028170876966696224
+            ],
+            "q_scale": 0.038453091901471656,
+            "mase": 0.013505952590678374
+          },
+          {
+            "fold_id": 4,
+            "test_index": [
+              8
+            ],
+            "y_true": [
+              -0.009132483563272474
+            ],
+            "y_pred": [
+              -0.009302392662313561
+            ],
+            "q_scale": 0.03828978818939468,
+            "mase": 0.004437452048589492
+          },
+          {
+            "fold_id": 5,
+            "test_index": [
+              9
+            ],
+            "y_true": [
+              0.027150989065950898
+            ],
+            "y_pred": [
+              0.02765153133050995
+            ],
+            "q_scale": 0.038098950447027366,
+            "mase": 0.01313795416109962
+          },
+          {
+            "fold_id": 6,
+            "test_index": [
+              10
+            ],
+            "y_true": [
+              -0.008968669982760375
+            ],
+            "y_pred": [
+              -0.009132483563272474
+            ],
+            "q_scale": 0.03793458350287175,
+            "mase": 0.004318317624330785
+          }
+        ],
+        "pooled_decision_index": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "pooled_y_true": [
+          -0.00947874395454377,
+          0.028170876966696224,
+          -0.009302392662313561,
+          0.02765153133050995,
+          -0.009132483563272474,
+          0.027150989065950898,
+          -0.008968669982760375
+        ],
+        "pooled_y_pred": [
+          -0.009661910911736859,
+          0.02871010588243136,
+          -0.00947874395454377,
+          0.028170876966696224,
+          -0.009302392662313561,
+          0.02765153133050995,
+          -0.009132483563272474
+        ],
+        "n_eval_points": 7,
+        "mase": 0.008364242408754214,
+        "mcc": null,
+        "n_neutral_excluded": null
+      }
+    },
+    {
+      "name": "dir_basic",
+      "opens": [
+        100.0,
+        102.0,
+        101.0,
+        104.0,
+        103.0,
+        106.0,
+        105.0,
+        108.0,
+        107.0,
+        110.0,
+        109.0,
+        112.0,
+        111.0,
+        114.0,
+        113.0,
+        116.0
+      ],
+      "horizon": 1,
+      "problem": "direction",
+      "model": "sign_last",
+      "lmin": 2,
+      "lfrac": 0.15,
+      "min_train": 3,
+      "hstar": 2,
+      "expected": {
+        "development_size": 13,
+        "n_folds": 7,
+        "folds": [
+          {
+            "fold_id": 0,
+            "test_index": [
+              4
+            ],
+            "y_true": [
+              -1
+            ],
+            "y_pred": [
+              -1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 1,
+            "test_index": [
+              5
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 2,
+            "test_index": [
+              6
+            ],
+            "y_true": [
+              -1
+            ],
+            "y_pred": [
+              -1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 3,
+            "test_index": [
+              7
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 4,
+            "test_index": [
+              8
+            ],
+            "y_true": [
+              -1
+            ],
+            "y_pred": [
+              -1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 5,
+            "test_index": [
+              9
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 6,
+            "test_index": [
+              10
+            ],
+            "y_true": [
+              -1
+            ],
+            "y_pred": [
+              -1
+            ],
+            "q_scale": null,
+            "mase": null
+          }
+        ],
+        "pooled_decision_index": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "pooled_y_true": [
+          -1,
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "pooled_y_pred": [
+          -1,
+          1,
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "n_eval_points": 7,
+        "mase": null,
+        "mcc": 1.0,
+        "n_neutral_excluded": 0
+      }
+    },
+    {
+      "name": "dir_with_neutrals",
+      "opens": [
+        100.0,
+        101.0,
+        102.0,
+        103.0,
+        104.0,
+        106.0,
+        106.0,
+        108.0,
+        110.0,
+        110.0,
+        112.0,
+        111.0,
+        113.0,
+        112.0,
+        114.0,
+        113.0
+      ],
+      "horizon": 1,
+      "problem": "direction",
+      "model": "sign_last",
+      "lmin": 2,
+      "lfrac": 0.15,
+      "min_train": 3,
+      "hstar": 2,
+      "expected": {
+        "development_size": 13,
+        "n_folds": 7,
+        "folds": [
+          {
+            "fold_id": 0,
+            "test_index": [
+              4
+            ],
+            "y_true": [
+              0
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 1,
+            "test_index": [
+              5
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 2,
+            "test_index": [
+              6
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 3,
+            "test_index": [
+              7
+            ],
+            "y_true": [
+              0
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 4,
+            "test_index": [
+              8
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 5,
+            "test_index": [
+              9
+            ],
+            "y_true": [
+              -1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          },
+          {
+            "fold_id": 6,
+            "test_index": [
+              10
+            ],
+            "y_true": [
+              1
+            ],
+            "y_pred": [
+              1
+            ],
+            "q_scale": null,
+            "mase": null
+          }
+        ],
+        "pooled_decision_index": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "pooled_y_true": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "pooled_y_pred": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "n_eval_points": 7,
+        "mase": null,
+        "mcc": 0.0,
+        "n_neutral_excluded": 2
+      }
+    }
+  ]
+}
